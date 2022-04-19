@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option go_package = ".";
+
+package pb;
+
+service UserService {
+    rpc UpdateAvatar(Avatar) returns (Empty) {}
+
+    rpc UpdateProfile(Profile) returns (Empty) {}
+
+    rpc GetUser(ID) returns (User) {}
+}
+
+message Empty {
+
+}
+
+message ID {
+    int64 id = 1;
+}
+
+message User {
+    int64 id = 1;
+    string username = 2;
+    string email = 3;
+    string avatar = 4;
+    string profile = 5;
+}
+
+message Avatar {
+    int64 id = 1;
+    string avatar = 2;
+}
+
+message Profile {
+    int64 id = 1;
+    string profile = 2;
+}
